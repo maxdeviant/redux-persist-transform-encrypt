@@ -1,9 +1,9 @@
 import { expect } from 'chai';
-const createTransform = require('../');
+const createEncryptor = require('../');
 
 describe('redux-persist-transform-encrypt', () => {
   it('can encrypt incoming state', () => {
-    const encryptTransform = createTransform({
+    const encryptTransform = createEncryptor({
       secretKey: 'redux-is-awesome'
     });
 
@@ -19,7 +19,7 @@ describe('redux-persist-transform-encrypt', () => {
   });
 
   it('can decrypt outgoing state', () => {
-    const encryptTransform = createTransform({
+    const encryptTransform = createEncryptor({
       secretKey: 'redux-is-awesome'
     });
 
