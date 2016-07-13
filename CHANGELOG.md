@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.1.1] - 2016-07-13
 ### Fixed
-- Removed `.babelrc` from npm package (#3).
+- Removed `.babelrc` from npm package ([#3](https://github.com/maxdeviant/redux-persist-transform-encrypt/issues/3)).
 
 ## [0.1.0] - 2016-05-15
 ### Added
