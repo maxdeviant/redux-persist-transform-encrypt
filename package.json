@@ -24,6 +24,7 @@
   "homepage": "https://github.com/maxdeviant/redux-persist-transform-encrypt#readme",
   "dependencies": {
     "crypto-js": "^3.1.6",
+    "json-stringify-safe": "^5.0.1",
     "redux-persist": "^3.1.1"
   },
   "devDependencies": {
