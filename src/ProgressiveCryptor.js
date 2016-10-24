@@ -14,12 +14,12 @@ export default class ProgressiveCryptor {
     };
   }
 
-  start(marker) {
+  start() {
     new Promise((resolve, reject) => {
-      var stream = new Stream;
-      var processedState = '';
-
       try {
+        var stream = new Stream;
+        var processedState = '';
+
         stream
         .on('data', (data) => {
           processedState += this.processor.process(data.toString());
@@ -39,11 +39,11 @@ export default class ProgressiveCryptor {
 
   encrypt() {
     this.processor = CryptoJS.algo.AES.createEncryptor(this.key, this.cryptorParams);
-    this.start('encrypt');
+    this.start();
   }
 
   decrypt() {
     this.processor = CryptoJS.algo.AES.createDecryptor(this.key, this.cryptorParams);
-    this.start('decrypt');
+    this.start();
   }
 }
