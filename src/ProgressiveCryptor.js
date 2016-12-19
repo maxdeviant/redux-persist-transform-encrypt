@@ -3,8 +3,8 @@ var Stream = require('readable-stream');
 
 export default class ProgressiveCryptor {
   constructor(state, secretKey) {
-    var salt = CryptoJS.lib.WordArray.random(8);
-    var cipher = CryptoJS.kdf.OpenSSL.execute(secretKey, 8, 4, salt);
+    const salt = CryptoJS.lib.WordArray.random(8);
+    const cipher = CryptoJS.kdf.OpenSSL.execute(secretKey, 8, 4, salt);
 
     this.state = state;
     this.key = CryptoJS.enc.Utf8.parse(secretKey);
@@ -17,8 +17,8 @@ export default class ProgressiveCryptor {
   start() {
     new Promise((resolve, reject) => {
       try {
-        var stream = new Stream;
-        var processedState = '';
+        const stream = new Stream;
+        let processedState = '';
 
         stream
         .on('data', (data) => {
