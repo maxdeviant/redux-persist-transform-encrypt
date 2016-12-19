@@ -1,7 +1,7 @@
-import createEncryptor from '../default';
+import createEncryptor from '../async';
 
-describe('default', () => {
-  it('can encrypt incoming state', () => {
+describe('async', () => {
+  xit('should encrypt incoming state asynchronously', () => {
     const encryptTransform = createEncryptor({
       secretKey: 'redux-is-awesome'
     });
@@ -14,7 +14,7 @@ describe('default', () => {
     expect(newState).not.toEqual(state);
   });
 
-  it('can decrypt outgoing state', () => {
+  xit('should decrypt outgoing state asynchronously', () => {
     const encryptTransform = createEncryptor({
       secretKey: 'redux-is-awesome'
     });

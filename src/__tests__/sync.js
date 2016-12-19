@@ -1,7 +1,7 @@
-import createEncryptor from '../progressive';
+import createEncryptor from '../sync';
 
-describe('progressive', () => {
-  xit('should encrypt incoming state progressively', () => {
+describe('sync', () => {
+  it('can encrypt incoming state', () => {
     const encryptTransform = createEncryptor({
       secretKey: 'redux-is-awesome'
     });
@@ -14,7 +14,7 @@ describe('progressive', () => {
     expect(newState).not.toEqual(state);
   });
 
-  xit('should decrypt outgoing state progressively', () => {
+  it('can decrypt outgoing state', () => {
     const encryptTransform = createEncryptor({
       secretKey: 'redux-is-awesome'
     });
