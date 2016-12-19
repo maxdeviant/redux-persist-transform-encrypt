@@ -1,5 +1,4 @@
-import { expect } from 'chai';
-import createEncryptor, { createProgressiveEncryptor } from '../src';
+import createEncryptor, { createProgressiveEncryptor } from '../';
 
 describe('redux-persist-transform-encrypt', () => {
   it('can encrypt incoming state', () => {
@@ -14,8 +13,8 @@ describe('redux-persist-transform-encrypt', () => {
 
     const newState = encryptTransform.in(state, key);
 
-    expect(newState).to.be.a('string');
-    expect(newState).to.not.eql(state);
+    expect(typeof newState).toBe('string');
+    expect(newState).not.toEqual(state);
   });
 
   it('can decrypt outgoing state', () => {
@@ -31,7 +30,7 @@ describe('redux-persist-transform-encrypt', () => {
     const encryptedState = encryptTransform.in(state, key);
     const newState = encryptTransform.out(encryptedState, key);
 
-    expect(newState).to.eql(state);
+    expect(newState).toEqual(state);
   });
 
   it('can encrypt incoming state progressively', () => {
@@ -46,8 +45,8 @@ describe('redux-persist-transform-encrypt', () => {
 
     const newState = encryptTransform.in(state, key);
 
-    expect(newState).to.be.a('string');
-    expect(newState).to.not.eql(state);
+    expect(typeof newState).toBe('string');
+    expect(newState).not.toEqual(state);
   });
 
   it.skip('can decrypt outgoing state progressively', () => {
@@ -63,6 +62,6 @@ describe('redux-persist-transform-encrypt', () => {
     const encryptedState = encryptTransform.in(state, key);
     const newState = encryptTransform.out(encryptedState, key);
 
-    expect(newState).to.eql(state);
+    expect(newState).toEqual(state);
   });
 });
