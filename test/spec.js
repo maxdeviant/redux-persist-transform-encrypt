@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import createEncryptor, { createProgressiveEncryptor } from '../';
+import createEncryptor, { createProgressiveEncryptor } from '../src';
 
 describe('redux-persist-transform-encrypt', () => {
   it('can encrypt incoming state', () => {

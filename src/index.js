@@ -1,11 +1,10 @@
-var CryptoJS = require('crypto-js');
-var ProgressiveCryptor = require('./ProgressiveCryptor').default;
-var reduxPersist = require('redux-persist');
-var stringify = require('json-stringify-safe');
-var createTransform = reduxPersist.createTransform;
+import CryptoJS from 'crypto-js';
+import { createTransform } from 'redux-persist';
+import stringify from 'json-stringify-safe';
+import ProgressiveCryptor from './ProgressiveCryptor';
 
 function makeEncryptor(secretKey, progressive) {
-  return function (state, key) {
+  return (state, key) => {
     if (typeof state !== 'string') {
       state = stringify(state);
     }
@@ -21,7 +20,7 @@ function makeEncryptor(secretKey, progressive) {
 }
 
 function makeDecryptor(secretKey, progressive) {
-  return function (state, key) {
+  return (state, key) => {
     if (typeof state !== 'string') {
       if (process.env.NODE_ENV !== 'production') {
         console.error('redux-persist-transform-encrypt: expected outbound state to be a string');
@@ -32,12 +31,12 @@ function makeDecryptor(secretKey, progressive) {
 
     try {
       if (progressive) {
-        new ProgressiveCryptor(state, secretKey).decrypt((decryptedState) => {
+        new ProgressiveCryptor(state, secretKey).decrypt(decryptedState => {
           return JSON.parse(decryptedState.toString(CryptoJS.enc.Utf8));
         });
       } else {
-        var bytes = CryptoJS.AES.decrypt(state, secretKey);
-        var newState = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        const bytes = CryptoJS.AES.decrypt(state, secretKey);
+        const newState = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
         return newState;
       }
@@ -52,15 +51,15 @@ function makeDecryptor(secretKey, progressive) {
 }
 
 export function createEncryptor(config) {
-  var inbound = makeEncryptor(config.secretKey);
-  var outbound = makeDecryptor(config.secretKey);
+  const inbound = makeEncryptor(config.secretKey);
+  const outbound = makeDecryptor(config.secretKey);
 
   return createTransform(inbound, outbound, config);
 }
 
 export function createProgressiveEncryptor(config) {
-  var inbound = makeEncryptor(config.secretKey, true);
-  var outbound = makeDecryptor(config.secretKey, true);
+  const inbound = makeEncryptor(config.secretKey, true);
+  const outbound = makeDecryptor(config.secretKey, true);
 
   return createTransform(inbound, outbound, config);
 }
