@@ -1,5 +1,5 @@
 var CryptoJS = require('crypto-js');
-var ProgressiveCryptor = require('./src/ProgressiveCryptor').default;
+var ProgressiveCryptor = require('./ProgressiveCryptor').default;
 var reduxPersist = require('redux-persist');
 var stringify = require('json-stringify-safe');
 var createTransform = reduxPersist.createTransform;

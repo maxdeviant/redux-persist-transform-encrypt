@@ -1,4 +1,11 @@
 #
+# redux-persist-transform-encrypt
+#
+
+# Compiled output
+/lib/
+
+#
 # Node
 #
 

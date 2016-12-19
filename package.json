@@ -2,8 +2,10 @@
   "name": "redux-persist-transform-encrypt",
   "version": "0.1.3",
   "description": "Encrypt your Redux store.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "prepublish": "npm run build",
+    "build": "babel src -d lib",
     "test": "mocha --compilers js:babel-register --recursive"
   },
   "repository": {
@@ -23,7 +25,7 @@
   },
   "homepage": "https://github.com/maxdeviant/redux-persist-transform-encrypt#readme",
   "files": [
-    "index.js"
+    "lib/"
   ],
   "peerDependencies": {
     "redux-persist": "^4.x.x"
