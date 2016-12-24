@@ -1,5 +1,5 @@
-var CryptoJS = require('crypto-js');
-var Stream = require('readable-stream');
+import CryptoJS from 'crypto-js';
+import Stream from 'readable-stream';
 
 export default class AsyncCryptor {
   constructor(secretKey) {
