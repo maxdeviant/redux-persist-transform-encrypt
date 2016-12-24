@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/maxdeviant/redux-persist-transform-encrypt#readme",
   "files": [
-    "lib/"
+    "lib/",
+    "async.js"
   ],
   "peerDependencies": {
     "redux-persist": "^4.x.x"
