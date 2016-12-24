@@ -25,6 +25,8 @@ persistStore(store, {
 
 ### Asynchronous
 
+**Note:** Asynchronous support is still a work in progress.
+
 ```js
 import createAsyncEncryptor from 'redux-persist-transform-encrypt/async';
 
