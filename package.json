@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "prepublish": "npm run build",
-    "build": "babel src -d lib",
+    "build": "babel src -d lib --ignore __tests__",
     "test": "jest"
   },
   "repository": {
