@@ -2,7 +2,7 @@
   "name": "redux-persist-transform-encrypt",
   "version": "1.0.0",
   "description": "Encrypt your Redux store.",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
     "prepublish": "npm run build",
     "build": "babel src -d lib --ignore __tests__",
