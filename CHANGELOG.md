@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.0.1] - 2016-12-26
 ### Fixed
-- Fixed default export for sync transform.
+- Fixed default export for sync transform
 
 ## [1.0.0] - 2016-12-24
 ### Changed
@@ -13,7 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.2.0] - 2016-12-18
 ### Added
-- Added `createProgressiveEncryptor` which provides the ability to encrypt state progressively ([@stovmascript](https://github.com/stovmascript) in [#5](https://github.com/maxdeviant/redux-persist-transform-encrypt/pull/5)).
+- Added `createProgressiveEncryptor` which provides the ability to encrypt state progressively ([@stovmascript](https://github.com/stovmascript) in [#5](https://github.com/maxdeviant/redux-persist-transform-encrypt/pull/5))
 
 ### Fixed
 - Updated `redux-persist` peer dependency to `v4.x.x` ([#8](https://github.com/maxdeviant/redux-persist-transform-encrypt/issues/8))
