@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prepublish": "npm run build",
+    "format": "prettier --single-quote --write 'src/**/*.js'",
     "build": "babel src -d lib --ignore __tests__",
     "test": "jest"
   },
@@ -41,6 +42,7 @@
     "babel-jest": "^18.0.0",
     "babel-preset-es2015": "^6.24.0",
     "jest": "^18.1.0",
+    "prettier": "^0.22.0",
     "redux-persist": "^4.5.0"
   },
   "jest": {
