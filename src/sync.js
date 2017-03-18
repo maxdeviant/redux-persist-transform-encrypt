@@ -3,8 +3,7 @@ import CryptoJS from 'crypto-js';
 import { makeEncryptor, makeDecryptor } from './helpers';
 
 const makeSyncEncryptor = secretKey =>
-  makeEncryptor(state =>
-    CryptoJS.AES.encrypt(state, secretKey).toString());
+  makeEncryptor(state => CryptoJS.AES.encrypt(state, secretKey).toString());
 
 const makeSyncDecryptor = secretKey =>
   makeDecryptor(state => {

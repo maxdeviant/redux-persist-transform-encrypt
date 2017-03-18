@@ -23,10 +23,13 @@ describe('async', () => {
     const state = {
       foo: 'bar'
     };
-    return encryptTransform.in(state, key).then(encryptedState => {
-      return encryptTransform.out(encryptedState, key);
-    }).then(newState => {
-      expect(newState).toEqual(state);
-    });
+    return encryptTransform
+      .in(state, key)
+      .then(encryptedState => {
+        return encryptTransform.out(encryptedState, key);
+      })
+      .then(newState => {
+        expect(newState).toEqual(state);
+      });
   });
 });

@@ -13,7 +13,7 @@ const makeAsyncEncryptor = cryptor =>
 const makeAsyncDecryptor = cryptor =>
   makeDecryptor(state => {
     return cryptor.decrypt(state).then(decryptedState => {
-      console.log(decryptedState)
+      console.log(decryptedState);
       return JSON.parse(decryptedState.toString(CryptoJS.enc.Utf8));
     });
   });

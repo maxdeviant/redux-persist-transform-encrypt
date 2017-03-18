@@ -7,17 +7,23 @@ export default class AsyncCryptor {
     const cipher = CryptoJS.kdf.OpenSSL.execute(secretKey, 8, 4, salt);
     this.key = CryptoJS.enc.Utf8.parse(secretKey);
     this.cryptorParams = {
-      iv: cipher.iv,
+      iv: cipher.iv
     };
   }
 
   encrypt(state) {
-    const encryptor = CryptoJS.algo.AES.createEncryptor(this.key, this.cryptorParams);
+    const encryptor = CryptoJS.algo.AES.createEncryptor(
+      this.key,
+      this.cryptorParams
+    );
     return this._execute(encryptor, state);
   }
 
   decrypt(state) {
-    const decryptor = CryptoJS.algo.AES.createDecryptor(this.key, this.cryptorParams);
+    const decryptor = CryptoJS.algo.AES.createDecryptor(
+      this.key,
+      this.cryptorParams
+    );
     return this._execute(decryptor, state, true);
   }
 
