@@ -1,5 +1,5 @@
 import { createTransform } from 'redux-persist';
-import CryptoJS from 'crypto-js';
+import CryptoJSCore from 'crypto-js/core';
 import { makeEncryptor, makeDecryptor } from './helpers';
 import AsyncCryptor from './AsyncCryptor';
 
@@ -13,7 +13,7 @@ const makeAsyncEncryptor = cryptor =>
 const makeAsyncDecryptor = cryptor =>
   makeDecryptor(state => {
     return cryptor.decrypt(state).then(decryptedState => {
-      return JSON.parse(decryptedState.toString(CryptoJS.enc.Utf8));
+      return JSON.parse(decryptedState.toString(CryptoJSCore.enc.Utf8));
     });
   });
 

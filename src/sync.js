@@ -1,14 +1,15 @@
 import { createTransform } from 'redux-persist';
-import CryptoJS from 'crypto-js';
+import CryptoJSCore from 'crypto-js/core';
+import AES from 'crypto-js/aes'
 import { makeEncryptor, makeDecryptor } from './helpers';
 
 const makeSyncEncryptor = secretKey =>
-  makeEncryptor(state => CryptoJS.AES.encrypt(state, secretKey).toString());
+  makeEncryptor(state => AES.encrypt(state, secretKey).toString());
 
 const makeSyncDecryptor = secretKey =>
   makeDecryptor(state => {
-    const bytes = CryptoJS.AES.decrypt(state, secretKey);
-    return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+    const bytes = AES.decrypt(state, secretKey);
+    return JSON.parse(bytes.toString(CryptoJSCore.enc.Utf8));
   });
 
 export default config => {
