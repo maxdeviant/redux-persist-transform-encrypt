@@ -7,10 +7,37 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
+  AsyncStorage,
   StyleSheet,
   Text,
   View
 } from 'react-native';
+import { compose, createStore } from 'redux';
+import { persistStore, autoRehydrate } from 'redux-persist';
+import createEncryptor from 'redux-persist-transform-encrypt';
+
+function counter(state = 0, action) {
+  return state;
+}
+
+const store = createStore(
+  counter,
+  undefined,
+  compose(
+    autoRehydrate()
+  )
+);
+
+const encryptor = createEncryptor({
+  secretKey: 'my-super-secret-key'
+});
+
+persistStore(store, {
+  storage: AsyncStorage,
+  transforms: [
+    encryptor
+  ]
+});
 
 export default class ReactNativeExample extends Component {
   render() {
