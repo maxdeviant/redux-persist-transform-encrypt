@@ -13,12 +13,11 @@ import {
   View
 } from 'react-native';
 import { compose, createStore } from 'redux';
+import { Provider } from 'react-redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import createEncryptor from 'redux-persist-transform-encrypt';
-
-function rootReducer(state = {}, action) {
-  return state;
-}
+import CounterContainer from './app/containers/CounterContainer';
+import rootReducer from './app/reducers';
 
 const store = createStore(
   rootReducer,
@@ -42,18 +41,21 @@ persistStore(store, {
 export default class ReactNativeExample extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <Text style={styles.welcome}>
+            Welcome to React Native!
+          </Text>
+          <Text style={styles.instructions}>
+            To get started, edit index.ios.js
+          </Text>
+          <Text style={styles.instructions}>
+            Press Cmd+R to reload,{'\n'}
+            Cmd+D or shake for dev menu
+          </Text>
+          <CounterContainer />
+        </View>
+      </Provider>
     );
   }
 }
