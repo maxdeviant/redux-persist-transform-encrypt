@@ -48,7 +48,8 @@
   "jest": {
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "<rootDir>/lib/"
+      "<rootDir>/lib/",
+      "<rootDir>/examples/"
     ]
   }
 }
