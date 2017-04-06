@@ -16,12 +16,12 @@ import { compose, createStore } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import createEncryptor from 'redux-persist-transform-encrypt';
 
-function counter(state = 0, action) {
+function rootReducer(state = {}, action) {
   return state;
 }
 
 const store = createStore(
-  counter,
+  rootReducer,
   undefined,
   compose(
     autoRehydrate()
