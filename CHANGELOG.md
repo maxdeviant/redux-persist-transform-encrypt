@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.2] - 2017-04-05
+### Changed
+- Import only required modules from `crypto-js` ([@7rulnik](https://github.com/7rulnik) in [#14](https://github.com/maxdeviant/redux-persist-transform-encrypt/pull/14))
+
 ## [1.0.1] - 2016-12-26
 ### Fixed
 - Fixed default export for sync transform
@@ -33,6 +37,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Initial release
 
+[1.0.2]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v0.2.0...v1.0.0
 [0.2.0]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v0.1.2...v0.2.0
