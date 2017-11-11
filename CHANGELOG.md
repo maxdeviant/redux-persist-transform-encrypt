@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.0.0] - 2017-11-11
 ### Changed
-- Added support for `redux-persist@5.0.0`
+- Added support for `redux-persist@5`
 
 ## [1.0.2] - 2017-04-05
 ### Changed
@@ -41,6 +41,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Initial release
 
+[2.0.0]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v1.0.2...v2.0.0
 [1.0.2]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v0.2.0...v1.0.0
