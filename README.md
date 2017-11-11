@@ -10,17 +10,19 @@ Encrypt your Redux store.
 ### Synchronous
 
 ```js
+import { persistReducer } from 'redux-persist';
 import createEncryptor from 'redux-persist-transform-encrypt';
 
 const encryptor = createEncryptor({
   secretKey: 'my-super-secret-key'
 });
 
-persistStore(store, {
-  transforms: [
-    encryptor
-  ]
-});
+const reducer = persistReducer(
+  {
+    transforms: [encryptor]
+  },
+  baseReducer
+);
 ```
 
 ### Asynchronous
@@ -28,15 +30,17 @@ persistStore(store, {
 **Note:** Asynchronous support is still a work in progress.
 
 ```js
+import { persistReducer } from 'redux-persist';
 import createAsyncEncryptor from 'redux-persist-transform-encrypt/async';
 
 const asyncEncryptor = createAsyncEncryptor({
   secretKey: 'my-super-secret-key'
 });
 
-persistStore(store, {
-  transforms: [
-    asyncEncryptor
-  ]
-});
+const reducer = persistReducer(
+  {
+    transforms: [asyncEncryptor]
+  },
+  baseReducer
+);
 ```
