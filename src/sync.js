@@ -1,6 +1,6 @@
 import { createTransform } from 'redux-persist';
 import CryptoJSCore from 'crypto-js/core';
-import AES from 'crypto-js/aes'
+import AES from 'crypto-js/aes';
 import { makeEncryptor, makeDecryptor } from './helpers';
 
 const makeSyncEncryptor = secretKey =>

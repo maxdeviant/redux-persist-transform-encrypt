@@ -3,7 +3,11 @@ import { makeEncryptor } from '../helpers';
 describe('makeEncryptor', () => {
   it('should ensure the incoming state is a string', () => {
     const encryptor = makeEncryptor(state =>
-      state.split('').reverse().join(''));
+      state
+        .split('')
+        .reverse()
+        .join('')
+    );
     const key = '123';
     const state = {
       a: 1

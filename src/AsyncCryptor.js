@@ -1,5 +1,5 @@
 import CryptoJSCore from 'crypto-js/core';
-import AES from 'crypto-js/aes'
+import AES from 'crypto-js/aes';
 import Stream from 'readable-stream';
 
 export default class AsyncCryptor {
