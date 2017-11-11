@@ -18,6 +18,11 @@ const makeAsyncDecryptor = cryptor =>
   });
 
 export default config => {
+  if (process.env.NODE_ENV !== 'production') {
+    console.warn(
+      'redux-persist-transform-encrypt: async support is still a work in progress.'
+    );
+  }
   const asyncCryptor = new AsyncCryptor(config.secretKey);
   const inbound = makeAsyncEncryptor(asyncCryptor);
   const outbound = makeAsyncDecryptor(asyncCryptor);
