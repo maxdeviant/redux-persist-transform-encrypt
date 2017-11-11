@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0] - 2017-11-11
+### Changed
+- Added support for `redux-persist@5.0.0`
+
 ## [1.0.2] - 2017-04-05
 ### Changed
 - Import only required modules from `crypto-js` ([@7rulnik](https://github.com/7rulnik) in [#14](https://github.com/maxdeviant/redux-persist-transform-encrypt/pull/14))
