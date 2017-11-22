@@ -7,21 +7,15 @@ export const makeEncryptor = transform => (state, key) => {
   return transform(state);
 };
 
-export const makeDecryptor = transform => (state, key) => {
+export const makeDecryptor = (transform, onError) => (state, key) => {
   if (typeof state !== 'string') {
-    if (process.env.NODE_ENV !== 'production') {
-      console.error(
-        'redux-persist-transform-encrypt: expected outbound state to be a string'
-      );
-    }
+    onError && onError('redux-persist-transform-encrypt: expected outbound state to be a string');
     return state;
   }
   try {
     return transform(state);
   } catch (err) {
-    if (process.env.NODE_ENV !== 'production') {
-      console.error(err);
-    }
+    onError && onError(err);
     return null;
   }
 };
