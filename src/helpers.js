@@ -9,13 +9,19 @@ export const makeEncryptor = transform => (state, key) => {
 
 export const makeDecryptor = (transform, onError) => (state, key) => {
   if (typeof state !== 'string') {
-    onError && onError('redux-persist-transform-encrypt: expected outbound state to be a string');
+    handleError(onError, 'redux-persist-transform-encrypt: expected outbound state to be a string');
     return state;
   }
   try {
     return transform(state);
   } catch (err) {
-    onError && onError(err);
+    handleError(onError, err);
     return null;
   }
 };
+
+export const handleError = (handler, err) => {
+  if (typeof handler === 'function') {
+    handler(err);
+  }
+}
