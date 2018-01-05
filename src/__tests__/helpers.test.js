@@ -17,16 +17,16 @@ describe('makeEncryptor', () => {
 });
 
 describe('errorHandler', () => {
-  it('should handle an error given a function error handler', () => {
+  it('should handle an error given an error handler', () => {
     const errorHandler = jest.fn();
     handleError(errorHandler, 'error message');
-    expect(errorHandler).toHaveBeenCalledWith(
-      'error message'
-    );
+    expect(errorHandler).toHaveBeenCalledWith('error message');
   });
 
-  it('should not throw if a non function handler is given', () => {
+  it('should not throw if an invalid handler is given', () => {
     const errorHandler = 'not a function';
-    expect(() => { handleError(errorHandler, 'error message'); }).not.toThrow();
+    expect(() => {
+      handleError(errorHandler, 'error message');
+    }).not.toThrow();
   });
 });
