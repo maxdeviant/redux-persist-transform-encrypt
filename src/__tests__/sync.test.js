@@ -1,5 +1,5 @@
 import createEncryptor from '../sync';
-global.console.error = jest.fn();
+const customErrorHandler = jest.fn();
 
 describe('sync', () => {
   it('can encrypt incoming state', () => {
@@ -28,7 +28,7 @@ describe('sync', () => {
     expect(newState).toEqual(state);
   });
 
-  it('should show a nice error message when an incorrect key is provided', () => {
+  it('should call our custom error handler when an incorrect key is provided', () => {
     const initialEncryptTransform = createEncryptor({
       secretKey: 'super-secret'
     });
@@ -38,10 +38,11 @@ describe('sync', () => {
     };
     const encryptedState = initialEncryptTransform.in(state, key);
     const encryptTransform = createEncryptor({
-      secretKey: 'different-secret'
+      secretKey: 'different-secret',
+      onError: customErrorHandler
     });
     const newState = encryptTransform.out(encryptedState, key);
-    expect(global.console.error).toHaveBeenCalledWith(
+    expect(customErrorHandler).toHaveBeenCalledWith(
       new Error(
         'Could not decrypt state. Please verify that you are using the correct secret key.'
       )
