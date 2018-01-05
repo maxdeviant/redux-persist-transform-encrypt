@@ -8,15 +8,16 @@ const makeSyncEncryptor = secretKey =>
 
 const makeSyncDecryptor = (secretKey, onError) =>
   makeDecryptor(state => {
-    const bytes = AES.decrypt(state, secretKey);
-    const decryptedString = bytes.toString(CryptoJSCore.enc.Utf8);
-    if (!decryptedString) {
+    try {
+      const bytes = AES.decrypt(state, secretKey);
+      const decryptedString = bytes.toString(CryptoJSCore.enc.Utf8);
+      return JSON.parse(decryptedString);
+    } catch (err) {
       throw new Error(
         'Could not decrypt state. Please verify that you are using the correct secret key.'
       );
     }
-    return JSON.parse(decryptedString);
-}, onError);
+  }, onError);
 
 export default config => {
   const inbound = makeSyncEncryptor(config.secretKey);
