@@ -1,5 +1,4 @@
 import createEncryptor from '../sync';
-const customErrorHandler = jest.fn();
 
 describe('sync', () => {
   it('can encrypt incoming state', () => {
@@ -37,6 +36,7 @@ describe('sync', () => {
       foo: 'bar'
     };
     const encryptedState = initialEncryptTransform.in(state, key);
+    const customErrorHandler = jest.fn();
     const encryptTransform = createEncryptor({
       secretKey: 'different-secret',
       onError: customErrorHandler
