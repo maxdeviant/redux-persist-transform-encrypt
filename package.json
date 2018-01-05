@@ -36,6 +36,7 @@
   "dependencies": {
     "crypto-js": "^3.1.9-1",
     "json-stringify-safe": "^5.0.1",
+    "marked": "^0.3.9",
     "readable-stream": "^2.2.6"
   },
   "devDependencies": {
