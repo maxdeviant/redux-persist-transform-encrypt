@@ -48,4 +48,22 @@ describe('sync', () => {
       )
     )
   })
+
+  it('should call our custom error handler when trying to decrypt something that is not a string', () => {
+    const key = 'testState'
+    const encryptedState = {
+      foo: 'bar'
+    }
+    const customErrorHandler = jest.fn()
+    const encryptTransform = createEncryptor({
+      secretKey: 'super-secret',
+      onError: customErrorHandler
+    })
+    const newState = encryptTransform.out(encryptedState, key)
+    expect(customErrorHandler).toHaveBeenCalledWith(
+      new Error(
+        'redux-persist-transform-encrypt: expected outbound state to be a string'
+      )
+    )
+  })
 })
