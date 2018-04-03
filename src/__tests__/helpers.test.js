@@ -20,11 +20,7 @@ describe('errorHandler', () => {
   it('should handle an error given an error handler', () => {
     const errorHandler = jest.fn()
     handleError(errorHandler, new Error('error message'))
-    expect(errorHandler).toHaveBeenCalledWith(
-        new Error(
-            'error message'
-        )
-    )
+    expect(errorHandler).toHaveBeenCalledWith(new Error('error message'))
   })
 
   it('should not throw if an invalid handler is given', () => {
