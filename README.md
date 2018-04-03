@@ -15,7 +15,9 @@ import createEncryptor from 'redux-persist-transform-encrypt'
 
 const encryptor = createEncryptor({
   secretKey: 'my-super-secret-key',
-  onError: function(error) { /* ... */ }
+  onError: function(error) {
+    // Handle the error.
+  }
 })
 
 const reducer = persistReducer(
@@ -48,5 +50,6 @@ const reducer = persistReducer(
 
 ### Custom Error Handling
 
-The `onError` property given to the `createEncryptor` options is an optional function that receives an `Error` object as its only parameter.
-This allows custom error handling from the application using redux-persist-transform-encrypt (sync only at the moment).
+The `onError` property given to the `createEncryptor` options is an optional
+function that receives an `Error` object as its only parameter. This allows
+custom error handling from the parent application.
