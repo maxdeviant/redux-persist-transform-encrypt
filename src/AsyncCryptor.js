@@ -1,15 +1,12 @@
 import CryptoJSCore from 'crypto-js/core'
 import AES from 'crypto-js/aes'
 import Stream from 'readable-stream'
+import { makeConfig } from './helpers'
 
 export default class AsyncCryptor {
-  constructor(secretKey) {
-    const salt = CryptoJSCore.lib.WordArray.random(8)
-    const cipher = CryptoJSCore.kdf.OpenSSL.execute(secretKey, 8, 4, salt)
+  constructor(secretKey, configParam) {
     this.key = CryptoJSCore.enc.Utf8.parse(secretKey)
-    this.cryptorParams = {
-      iv: cipher.iv
-    }
+    this.cryptorParams = makeConfig(configParam)
   }
 
   encrypt(state) {

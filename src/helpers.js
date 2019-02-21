@@ -1,4 +1,5 @@
 import stringify from 'json-stringify-safe'
+import CryptoJSCore from 'crypto-js'
 
 export const handleError = (handler, err) => {
   if (typeof handler === 'function') {
@@ -29,4 +30,22 @@ export const makeDecryptor = (transform, onError) => (state, key) => {
     handleError(onError, err)
     return null
   }
+}
+
+export const makeConfig = config => {
+  if (config.cipher || config.mode || config.padding) {
+    const salt = CryptoJSCore.lib.WordArray.random(128 / 8)
+    const cipher = CryptoJSCore.kdf.OpenSSL.execute(
+      config.secretKey,
+      256 / 32,
+      128 / 32,
+      salt
+    )
+    return {
+      iv: cipher.iv,
+      mode: config.mode || CryptoJSCore.mode.ECB,
+      padding: config.padding || CryptoJSCore.pad.Pkcs7
+    }
+  }
+  return {}
 }

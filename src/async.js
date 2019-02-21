@@ -1,6 +1,6 @@
 import { createTransform } from 'redux-persist'
 import CryptoJSCore from 'crypto-js/core'
-import { makeEncryptor, makeDecryptor } from './helpers'
+import { makeEncryptor, makeDecryptor, makeConfig } from './helpers'
 import AsyncCryptor from './AsyncCryptor'
 
 const makeAsyncEncryptor = cryptor =>
@@ -23,7 +23,9 @@ export default config => {
       'redux-persist-transform-encrypt: async support is still a work in progress.'
     )
   }
-  const asyncCryptor = new AsyncCryptor(config.secretKey)
+  config.cypher = true
+  const configParam = makeConfig(config)
+  const asyncCryptor = new AsyncCryptor(config.secretKey, configParam)
   const inbound = makeAsyncEncryptor(asyncCryptor)
   const outbound = makeAsyncDecryptor(asyncCryptor)
   return createTransform(inbound, outbound, config)
