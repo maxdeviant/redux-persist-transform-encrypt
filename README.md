@@ -3,8 +3,8 @@
 [![npm](https://img.shields.io/npm/v/redux-persist-transform-encrypt.svg?maxAge=3600&style=flat-square)](https://www.npmjs.com/package/redux-persist-transform-encrypt)
 [![Travis](https://img.shields.io/travis/maxdeviant/redux-persist-transform-encrypt.svg?maxAge=3600&style=flat-square)](https://travis-ci.org/maxdeviant/redux-persist-transform-encrypt)
 
-Encrypt your Redux store.
-The package can be used in either React Web or React Native applications.
+Encrypt your Redux store.  
+The package can be used with different Redux implementations, including React Web and React Native applications.
 
 ## Usage
 
