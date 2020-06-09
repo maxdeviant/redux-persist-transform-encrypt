@@ -3,11 +3,11 @@ import CryptoJSCore from 'crypto-js/core'
 import AES from 'crypto-js/aes'
 import { makeEncryptor, makeDecryptor } from './helpers'
 
-const makeSyncEncryptor = secretKey =>
-  makeEncryptor(state => AES.encrypt(state, secretKey).toString())
+const makeSyncEncryptor = (secretKey) =>
+  makeEncryptor((state) => AES.encrypt(state, secretKey).toString())
 
 const makeSyncDecryptor = (secretKey, onError) =>
-  makeDecryptor(state => {
+  makeDecryptor((state) => {
     try {
       const bytes = AES.decrypt(state, secretKey)
       const decryptedString = bytes.toString(CryptoJSCore.enc.Utf8)
@@ -19,7 +19,7 @@ const makeSyncDecryptor = (secretKey, onError) =>
     }
   }, onError)
 
-export default config => {
+export default (config) => {
   const inbound = makeSyncEncryptor(config.secretKey)
   const outbound = makeSyncDecryptor(config.secretKey, config.onError)
   return createTransform(inbound, outbound, config)
