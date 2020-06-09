@@ -3,11 +3,11 @@ import createEncryptor from '../sync'
 describe('sync', () => {
   it('can encrypt incoming state', () => {
     const encryptTransform = createEncryptor({
-      secretKey: 'redux-is-awesome'
+      secretKey: 'redux-is-awesome',
     })
     const key = 'testState'
     const state = {
-      foo: 'bar'
+      foo: 'bar',
     }
     const newState = encryptTransform.in(state, key)
     expect(typeof newState).toBe('string')
@@ -16,11 +16,11 @@ describe('sync', () => {
 
   it('can decrypt outgoing state', () => {
     const encryptTransform = createEncryptor({
-      secretKey: 'redux-is-awesome'
+      secretKey: 'redux-is-awesome',
     })
     const key = 'testState'
     const state = {
-      foo: 'bar'
+      foo: 'bar',
     }
     const encryptedState = encryptTransform.in(state, key)
     const newState = encryptTransform.out(encryptedState, key)
@@ -29,17 +29,17 @@ describe('sync', () => {
 
   it('should call our custom error handler when an incorrect key is provided', () => {
     const initialEncryptTransform = createEncryptor({
-      secretKey: 'super-secret'
+      secretKey: 'super-secret',
     })
     const key = 'testState'
     const state = {
-      foo: 'bar'
+      foo: 'bar',
     }
     const encryptedState = initialEncryptTransform.in(state, key)
     const customErrorHandler = jest.fn()
     const encryptTransform = createEncryptor({
       secretKey: 'different-secret',
-      onError: customErrorHandler
+      onError: customErrorHandler,
     })
     const newState = encryptTransform.out(encryptedState, key)
     expect(customErrorHandler).toHaveBeenCalledWith(
@@ -52,12 +52,12 @@ describe('sync', () => {
   it('should call our custom error handler when trying to decrypt something that is not a string', () => {
     const key = 'testState'
     const encryptedState = {
-      foo: 'bar'
+      foo: 'bar',
     }
     const customErrorHandler = jest.fn()
     const encryptTransform = createEncryptor({
       secretKey: 'super-secret',
-      onError: customErrorHandler
+      onError: customErrorHandler,
     })
     const newState = encryptTransform.out(encryptedState, key)
     expect(customErrorHandler).toHaveBeenCalledWith(

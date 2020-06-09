@@ -8,7 +8,7 @@ export default class AsyncCryptor {
     const cipher = CryptoJSCore.kdf.OpenSSL.execute(secretKey, 8, 4, salt)
     this.key = CryptoJSCore.enc.Utf8.parse(secretKey)
     this.cryptorParams = {
-      iv: cipher.iv
+      iv: cipher.iv,
     }
   }
 
@@ -34,7 +34,7 @@ export default class AsyncCryptor {
         const stream = new Stream()
         let processedState = ''
         stream
-          .on('data', data => {
+          .on('data', (data) => {
             processedState += cryptor.process(data.toString())
           })
           .on('end', () => {
