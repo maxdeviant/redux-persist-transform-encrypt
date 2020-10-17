@@ -13,9 +13,6 @@ export interface Config {
 const makeError = (message: string) =>
   new Error(`redux-persist-transform-encrypt: ${message}`);
 
-const stringOrSerialize = (value: unknown) =>
-  typeof value === 'string' ? value : stringify(value);
-
 export const encryptTransform = (config: Config) => {
   if (typeof config === 'undefined') {
     throw makeError('No configuration provided.');
@@ -31,7 +28,7 @@ export const encryptTransform = (config: Config) => {
 
   return createTransform(
     (inboundState, _key) =>
-      Aes.encrypt(stringOrSerialize(inboundState), secretKey).toString(),
+      Aes.encrypt(stringify(inboundState), secretKey).toString(),
     (outboundState, _key) => {
       if (typeof outboundState !== 'string') {
         return onError(makeError('Expected outbound state to be a string.'));
@@ -40,8 +37,16 @@ export const encryptTransform = (config: Config) => {
       try {
         const bytes = Aes.decrypt(outboundState, secretKey);
         const decryptedString = bytes.toString(CryptoJsCore.enc.Utf8);
-        return JSON.parse(decryptedString);
-      } catch (err) {
+        if (!decryptedString) {
+          throw new Error('Decrypted string is empty.');
+        }
+
+        try {
+          return JSON.parse(decryptedString);
+        } catch (err) {
+          return onError(makeError('Failed to parse state as JSON.'));
+        }
+      } catch {
         return onError(
           makeError(
             'Could not decrypt state. Please verify that you are using the correct secret key.'
