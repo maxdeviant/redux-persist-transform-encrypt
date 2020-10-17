@@ -27,7 +27,7 @@
   "homepage": "https://github.com/maxdeviant/redux-persist-transform-encrypt#readme",
   "files": [
     "lib/",
-    "async.js"
+    "index.d.ts"
   ],
   "peerDependencies": {
     "redux": ">3.0.0",

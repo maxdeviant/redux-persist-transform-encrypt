@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. This
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- Library has been rewritten in TypeScript
+- No more default export; must use a named import
+
+### Removed
+
+- Removed asynchronous support, as it was never working properly in the first place
+  - `redux-persist` does not support asynchronous transforms, see [rt2zz/redux-persist#303](https://github.com/rt2zz/redux-persist/issues/303) for more details
+
 ## [2.0.1] - 2018-04-02
 
 ### Added
@@ -75,6 +87,7 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 - Initial release
 
+[unreleased]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v2.0.1...HEAD
 [2.0.1]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v1.0.2...v2.0.0
 [1.0.2]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v1.0.1...v1.0.2
