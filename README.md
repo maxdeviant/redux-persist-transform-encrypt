@@ -10,22 +10,22 @@ Encrypt your Redux store.
 ### Synchronous
 
 ```js
-import { persistReducer } from 'redux-persist'
-import createEncryptor from 'redux-persist-transform-encrypt'
+import { persistReducer } from 'redux-persist';
+import createEncryptor from 'redux-persist-transform-encrypt';
 
 const encryptor = createEncryptor({
   secretKey: 'my-super-secret-key',
-  onError: function(error) {
+  onError: function (error) {
     // Handle the error.
-  }
-})
+  },
+});
 
 const reducer = persistReducer(
   {
-    transforms: [encryptor]
+    transforms: [encryptor],
   },
   baseReducer
-)
+);
 ```
 
 ### Asynchronous
@@ -33,19 +33,19 @@ const reducer = persistReducer(
 **Note:** Asynchronous support is still a work in progress.
 
 ```js
-import { persistReducer } from 'redux-persist'
-import createAsyncEncryptor from 'redux-persist-transform-encrypt/async'
+import { persistReducer } from 'redux-persist';
+import createAsyncEncryptor from 'redux-persist-transform-encrypt/async';
 
 const asyncEncryptor = createAsyncEncryptor({
-  secretKey: 'my-super-secret-key'
-})
+  secretKey: 'my-super-secret-key',
+});
 
 const reducer = persistReducer(
   {
-    transforms: [asyncEncryptor]
+    transforms: [asyncEncryptor],
   },
   baseReducer
-)
+);
 ```
 
 ### Custom Error Handling
