@@ -5,7 +5,7 @@ import { createTransform } from 'redux-persist';
 
 type ErrorHandler = (err: unknown) => void;
 
-export interface Config {
+export interface EncryptTransformConfig {
   secretKey: string;
   onError?: ErrorHandler;
 }
@@ -13,7 +13,7 @@ export interface Config {
 const makeError = (message: string) =>
   new Error(`redux-persist-transform-encrypt: ${message}`);
 
-export const encryptTransform = (config: Config) => {
+export const encryptTransform = (config: EncryptTransformConfig) => {
   if (typeof config === 'undefined') {
     throw makeError('No configuration provided.');
   }
