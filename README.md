@@ -13,16 +13,16 @@ Encrypt your Redux store.
 import { persistReducer } from 'redux-persist';
 import { encryptTransform } from 'redux-persist-transform-encrypt';
 
-const encryptor = encryptTransform({
-  secretKey: 'my-super-secret-key',
-  onError: function (error) {
-    // Handle the error.
-  },
-});
-
 const reducer = persistReducer(
   {
-    transforms: [encryptor],
+    transforms: [
+      encryptTransform({
+        secretKey: 'my-super-secret-key',
+        onError: function (error) {
+          // Handle the error.
+        },
+      }),
+    ],
   },
   baseReducer
 );
