@@ -33,8 +33,9 @@ export const encryptTransform = (config: EncryptTransformConfig) => {
       }
 
       try {
-        const bytes = Aes.decrypt(outboundState, secretKey);
-        const decryptedString = bytes.toString(CryptoJsCore.enc.Utf8);
+        const decryptedString = Aes.decrypt(outboundState, secretKey).toString(
+          CryptoJsCore.enc.Utf8
+        );
         if (!decryptedString) {
           throw new Error('Decrypted string is empty.');
         }
