@@ -11,9 +11,9 @@ Encrypt your Redux store.
 
 ```js
 import { persistReducer } from 'redux-persist';
-import createEncryptor from 'redux-persist-transform-encrypt';
+import { encryptTransform } from 'redux-persist-transform-encrypt';
 
-const encryptor = createEncryptor({
+const encryptor = encryptTransform({
   secretKey: 'my-super-secret-key',
   onError: function (error) {
     // Handle the error.
@@ -30,26 +30,10 @@ const reducer = persistReducer(
 
 ### Asynchronous
 
-**Note:** Asynchronous support is still a work in progress.
-
-```js
-import { persistReducer } from 'redux-persist';
-import createAsyncEncryptor from 'redux-persist-transform-encrypt/async';
-
-const asyncEncryptor = createAsyncEncryptor({
-  secretKey: 'my-super-secret-key',
-});
-
-const reducer = persistReducer(
-  {
-    transforms: [asyncEncryptor],
-  },
-  baseReducer
-);
-```
+Asynchronous support was removed in v3.0.0, as it was never fully supported and is not able to be implemented correctly. See [#48](https://github.com/maxdeviant/redux-persist-transform-encrypt/issues/48) for more details.
 
 ### Custom Error Handling
 
-The `onError` property given to the `createEncryptor` options is an optional
+The `onError` property given to the `encryptTransform` options is an optional
 function that receives an `Error` object as its only parameter. This allows
 custom error handling from the parent application.
