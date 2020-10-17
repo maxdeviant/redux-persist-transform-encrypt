@@ -13,7 +13,7 @@ project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 - Removed asynchronous support, as it was never working properly in the first place
-  - `redux-persist` does not support asynchronous transforms, see [rt2zz/redux-persist#303](https://github.com/rt2zz/redux-persist/issues/303) for more details
+  - Asynchronous support is tracked by [#48](https://github.com/maxdeviant/redux-persist-transform-encrypt/issues/48)
 
 ## [2.0.1] - 2018-04-02
 
