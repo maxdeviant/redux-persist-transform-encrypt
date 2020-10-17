@@ -21,17 +21,20 @@ export const encryptTransform = (config: Config) => {
     throw makeError('No configuration provided.');
   }
 
-  const { secretKey, onError } = config;
+  const { secretKey } = config;
   if (!secretKey) {
     throw makeError('No secret key provided.');
   }
+
+  const onError =
+    typeof config.onError === 'function' ? config.onError : console.warn;
 
   return createTransform(
     (inboundState, _key) =>
       Aes.encrypt(stringOrSerialize(inboundState), secretKey).toString(),
     (outboundState, _key) => {
       if (typeof outboundState !== 'string') {
-        return onError!(makeError('Expected outbound state to be a string.'));
+        return onError(makeError('Expected outbound state to be a string.'));
       }
 
       try {
@@ -39,7 +42,7 @@ export const encryptTransform = (config: Config) => {
         const decryptedString = bytes.toString(CryptoJsCore.enc.Utf8);
         return JSON.parse(decryptedString);
       } catch (err) {
-        return onError!(
+        return onError(
           makeError(
             'Could not decrypt state. Please verify that you are using the correct secret key.'
           )

@@ -53,5 +53,31 @@ describe('sync', () => {
       const decryptedState = transform.out(encryptedState, key, encryptedState);
       expect(decryptedState).toEqual(state);
     });
+
+    it('calls the error handler when the decryption fails', () => {
+      const inboundTransform = encryptTransform({
+        secretKey: 'redux-is-awesome',
+      });
+
+      const key = 'testState';
+      const state = {
+        foo: 'bar',
+      };
+
+      const encryptedState = inboundTransform.in(state, key, state);
+
+      const handleError = jest.fn();
+      const transform = encryptTransform({
+        secretKey: 'different-secret',
+        onError: handleError,
+      });
+
+      transform.out(encryptedState, key, encryptedState);
+      expect(handleError).toHaveBeenCalledWith(
+        new Error(
+          'redux-persist-transform-encrypt: Could not decrypt state. Please verify that you are using the correct secret key.'
+        )
+      );
+    });
   });
 });
