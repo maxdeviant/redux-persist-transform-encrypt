@@ -5,6 +5,22 @@
 
 Encrypt your Redux store.
 
+## Installation
+
+`redux-persist-transform-encrypt` must be used in conjunction with `redux-persist`, so make sure you have that installed as well.
+
+#### Yarn
+
+```sh
+yarn add redux-persist-transform-encrypt
+```
+
+#### npm
+
+```sh
+npm install redux-persist-transform-encrypt
+```
+
 ## Usage
 
 ### Synchronous
