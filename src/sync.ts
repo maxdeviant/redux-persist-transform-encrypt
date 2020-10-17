@@ -3,11 +3,9 @@ import * as CryptoJsCore from 'crypto-js/core';
 import stringify from 'json-stringify-safe';
 import { createTransform } from 'redux-persist';
 
-type ErrorHandler = (err: unknown) => void;
-
 export interface EncryptTransformConfig {
   secretKey: string;
-  onError?: ErrorHandler;
+  onError?: (err: Error) => void;
 }
 
 const makeError = (message: string) =>
@@ -43,7 +41,7 @@ export const encryptTransform = (config: EncryptTransformConfig) => {
 
         try {
           return JSON.parse(decryptedString);
-        } catch (err) {
+        } catch {
           return onError(makeError('Failed to parse state as JSON.'));
         }
       } catch {
