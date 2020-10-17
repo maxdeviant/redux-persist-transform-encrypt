@@ -39,17 +39,14 @@
     "readable-stream": "^3.6.0"
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.0.1",
+    "@types/json-stringify-safe": "^5.0.0",
+    "@types/redux-persist": "^4.3.1",
     "jest": "^26.5.3",
     "prettier": "^2.1.2",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
+    "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
-  },
-  "jest": {
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "<rootDir>/lib/",
-      "<rootDir>/examples/"
-    ]
   }
 }
