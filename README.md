@@ -30,7 +30,7 @@ const reducer = persistReducer(
 
 ### Asynchronous
 
-Asynchronous support was removed in v3.0.0, as it was never fully supported and is not able to be implemented correctly. See [#48](https://github.com/maxdeviant/redux-persist-transform-encrypt/issues/48) for more details.
+Asynchronous support was removed in v3.0.0, as it was never fully supported and is not able to be implemented correctly given the current constraints that `redux-persist` imposes on transforms. See [#48](https://github.com/maxdeviant/redux-persist-transform-encrypt/issues/48) for more details.
 
 ### Custom Error Handling
 
