@@ -96,5 +96,18 @@ describe('sync', () => {
       const decryptedState = transform.out(encryptedState, key, encryptedState);
       expect(decryptedState).toStrictEqual(state);
     });
+
+    it('works when the inbound state is a plain string', () => {
+      const transform = encryptTransform({
+        secretKey: 'redux-is-awesome',
+      });
+
+      const key = 'testState';
+      const state = 'Hello World';
+
+      const encryptedState = transform.in(state, key, state);
+      const decryptedState = transform.out(encryptedState, key, encryptedState);
+      expect(decryptedState).toStrictEqual(state);
+    });
   });
 });
