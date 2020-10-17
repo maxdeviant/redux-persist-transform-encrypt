@@ -8,7 +8,7 @@ project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 - Library has been rewritten in TypeScript
-- No more default export; must use a named import
+- No more default export; must use the `encryptTransform` named import instead
 
 ### Removed
 
