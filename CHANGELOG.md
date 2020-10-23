@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Removed `readable-stream` dependency, as it is no longer used
+
 ## [3.0.0] - 2020-10-17
 
 ### Changed
