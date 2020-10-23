@@ -34,7 +34,7 @@
     "redux-persist": "^6.x.x"
   },
   "dependencies": {
-    "crypto-js": "^4.0.0",
+    "crypto-js": "3.1.9-1",
     "json-stringify-safe": "^5.0.1"
   },
   "devDependencies": {
