@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Downgraded `crypto-js` to `3.1.9-1` to fix error in React Native ([#49](https://github.com/maxdeviant/redux-persist-transform-encrypt/issues/49))
+
 ### Removed
 
 - Removed `readable-stream` dependency, as it is no longer used
