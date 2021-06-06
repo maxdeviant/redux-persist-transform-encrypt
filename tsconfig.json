@@ -8,11 +8,12 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "es5"
+    "target": "ES5"
   },
   "include": ["src"]
 }
