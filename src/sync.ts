@@ -11,25 +11,29 @@ export interface EncryptTransformConfig {
 const makeError = (message: string) =>
   new Error(`redux-persist-transform-encrypt: ${message}`);
 
-export const encryptTransform = (config: EncryptTransformConfig) => {
+export const encryptTransform = (
+  config: EncryptTransformConfig & Parameters<typeof createTransform>[2]
+) => {
   if (typeof config === 'undefined') {
     throw makeError('No configuration provided.');
   }
 
-  const { secretKey } = config;
+  const { secretKey, onError, ...transformConfig } = config;
   if (!secretKey) {
     throw makeError('No secret key provided.');
   }
 
-  const onError =
-    typeof config.onError === 'function' ? config.onError : console.warn;
+  const onErrorHandler =
+    typeof !!onError && typeof onError === 'function' ? onError : console.warn;
 
   return createTransform(
     (inboundState, _key) =>
       Aes.encrypt(stringify(inboundState), secretKey).toString(),
     (outboundState, _key) => {
       if (typeof outboundState !== 'string') {
-        return onError(makeError('Expected outbound state to be a string.'));
+        return onErrorHandler(
+          makeError('Expected outbound state to be a string.')
+        );
       }
 
       try {
@@ -43,15 +47,16 @@ export const encryptTransform = (config: EncryptTransformConfig) => {
         try {
           return JSON.parse(decryptedString);
         } catch {
-          return onError(makeError('Failed to parse state as JSON.'));
+          return onErrorHandler(makeError('Failed to parse state as JSON.'));
         }
       } catch {
-        return onError(
+        return onErrorHandler(
           makeError(
             'Could not decrypt state. Please verify that you are using the correct secret key.'
           )
         );
       }
-    }
+    },
+    transformConfig
   );
 };
