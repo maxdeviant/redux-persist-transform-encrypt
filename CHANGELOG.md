@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added support for passing type parameters for `createTransform`
+- Added support for passing type parameters to `createTransform`
 - Added support for passing `TransformConfig` to `createTransform`
 
 ### Changed
