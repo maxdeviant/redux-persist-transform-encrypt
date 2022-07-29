@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0] - 2022-07-28
+
 ### Added
 
 - Added support for passing type parameters to `createTransform`
@@ -111,7 +113,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release
 
-[unreleased]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v3.0.1...HEAD
+[unreleased]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v3.0.1...v4.0.0
 [3.0.1]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v2.0.1...v3.0.0
 [2.0.1]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v2.0.0...v2.0.1
