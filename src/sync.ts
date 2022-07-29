@@ -11,7 +11,9 @@ export interface EncryptTransformConfig {
 const makeError = (message: string) =>
   new Error(`redux-persist-transform-encrypt: ${message}`);
 
-export const encryptTransform = (config: EncryptTransformConfig) => {
+export const encryptTransform = <HSS, S = any, RS = any>(
+  config: EncryptTransformConfig
+) => {
   if (typeof config === 'undefined') {
     throw makeError('No configuration provided.');
   }
@@ -24,7 +26,7 @@ export const encryptTransform = (config: EncryptTransformConfig) => {
   const onError =
     typeof config.onError === 'function' ? config.onError : console.warn;
 
-  return createTransform(
+  return createTransform<HSS, string, S, RS>(
     (inboundState, _key) =>
       Aes.encrypt(stringify(inboundState), secretKey).toString(),
     (outboundState, _key) => {
