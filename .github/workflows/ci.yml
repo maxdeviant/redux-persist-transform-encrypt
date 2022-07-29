@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: '16'
 
+      - run: yarn
       - run: yarn format --check
       - run: yarn build
       - run: yarn test
