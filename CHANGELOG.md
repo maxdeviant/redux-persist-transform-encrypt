@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added support for passing type parameters for `createTransform`
+- Added support for passing `TransformConfig` to `createTransform`
+
+### Changed
+
+- Updated dependencies
+  - Includes upgrade to `crypto-js@4.1.1`
+
 ## [3.0.1] - 2020-10-23
 
 ### Changed
