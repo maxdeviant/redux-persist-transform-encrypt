@@ -43,7 +43,7 @@
     "@types/json-stringify-safe": "^5.0.0",
     "@types/redux-persist": "^4.3.1",
     "jest": "^28.1.3",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.7",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
     "ts-jest": "^28.0.7",
