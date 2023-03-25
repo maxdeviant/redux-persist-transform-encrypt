@@ -1,6 +1,6 @@
 {
   "name": "redux-persist-transform-encrypt",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Encrypt your Redux store.",
   "type": "module",
   "module": "lib/index.js",
