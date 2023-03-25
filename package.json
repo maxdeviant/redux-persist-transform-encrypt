@@ -3,7 +3,8 @@
   "version": "4.0.0",
   "description": "Encrypt your Redux store.",
   "type": "module",
-  "module": "index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "prepublishOnly": "pnpm run build",
     "format": "prettier --ignore-path .gitignore --write '**/*.+(js|json|md|ts|tsx)'",
