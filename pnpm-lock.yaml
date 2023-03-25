@@ -12,7 +12,7 @@ specifiers:
   redux: ^4.2.0
   redux-persist: ^6.0.0
   ts-jest: ^29.0.5
-  typescript: ^4.7.4
+  typescript: ^5.0.2
 
 dependencies:
   crypto-js: 4.1.1
@@ -27,8 +27,8 @@ devDependencies:
   prettier: 2.8.7
   redux: 4.2.1
   redux-persist: 6.0.0_redux@4.2.1
-  ts-jest: 29.0.5_doipufordlnvh5g4adbwayvyvy
-  typescript: 4.9.5
+  ts-jest: 29.0.5_44ttdtjaknnkcgzh5px4h2qxl4
+  typescript: 5.0.2
 
 packages:
 
@@ -2261,7 +2261,7 @@ packages:
       is-number: 7.0.0
     dev: true
 
-  /ts-jest/29.0.5_doipufordlnvh5g4adbwayvyvy:
+  /ts-jest/29.0.5_44ttdtjaknnkcgzh5px4h2qxl4:
     resolution: {integrity: sha512-PL3UciSgIpQ7f6XjVOmbi96vmDHUqAyqDr8YxzopDqX3kfgYtX1cuNeBjP+L9sFXi6nzsGGA6R3fP3DDDJyrxA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -2290,7 +2290,7 @@ packages:
       lodash.memoize: 4.1.2
       make-error: 1.3.6
       semver: 7.3.8
-      typescript: 4.9.5
+      typescript: 5.0.2
       yargs-parser: 21.1.1
     dev: true
 
@@ -2304,9 +2304,9 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /typescript/4.9.5:
-    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
-    engines: {node: '>=4.2.0'}
+  /typescript/5.0.2:
+    resolution: {integrity: sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==}
+    engines: {node: '>=12.20'}
     hasBin: true
     dev: true
 
