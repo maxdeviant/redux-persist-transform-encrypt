@@ -1,4 +1,4 @@
-import { Action, createStore, Store } from 'redux';
+import { Action, legacy_createStore as createStore, Store } from 'redux';
 import {
   Persistor,
   persistReducer,
