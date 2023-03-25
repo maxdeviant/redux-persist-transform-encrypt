@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Moved package to ESM
+  - See [here](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) for more details
+- Updated dependencies
+- Test files no longer included in published package
+
 ## [4.0.0] - 2022-07-28
 
 ### Added
