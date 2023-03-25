@@ -2,7 +2,8 @@
   "name": "redux-persist-transform-encrypt",
   "version": "4.0.0",
   "description": "Encrypt your Redux store.",
-  "main": "index.js",
+  "type": "module",
+  "module": "index.js",
   "scripts": {
     "prepublishOnly": "npm run build",
     "format": "prettier --ignore-path .gitignore --write '**/*.+(js|json|md|ts|tsx)'",

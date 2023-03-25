@@ -1,5 +1,5 @@
-import * as Aes from 'crypto-js/aes';
-import * as CryptoJsCore from 'crypto-js/core';
+import Aes from 'crypto-js/aes.js';
+import CryptoJsCore from 'crypto-js/core.js';
 import stringify from 'json-stringify-safe';
 import { createTransform } from 'redux-persist';
 import type { TransformConfig } from 'redux-persist/lib/createTransform';

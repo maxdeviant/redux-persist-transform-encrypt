@@ -6,7 +6,7 @@ import {
   persistStore,
   Storage,
 } from 'redux-persist';
-import { encryptTransform } from '../sync';
+import { encryptTransform } from '../sync.js';
 
 const inMemoryStorage = () => {
   const memory = new Map<string, any>();

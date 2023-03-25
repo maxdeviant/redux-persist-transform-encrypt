@@ -1,6 +1,6 @@
 import test from 'ava';
 import sinon from 'sinon';
-import { encryptTransform } from '../sync';
+import { encryptTransform } from '../sync.js';
 
 test('encryptTransform throws an error when not given any configuration', t => {
   t.throws(() => encryptTransform(void 0 as any), {

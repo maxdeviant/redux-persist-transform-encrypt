@@ -5,15 +5,15 @@
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "CommonJS",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "nodenext",
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ES2015"
+    "target": "ESNext"
   },
   "include": ["src"]
 }
