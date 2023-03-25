@@ -5,7 +5,7 @@
   "type": "module",
   "module": "index.js",
   "scripts": {
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "pnpm run build",
     "format": "prettier --ignore-path .gitignore --write '**/*.+(js|json|md|ts|tsx)'",
     "build": "tsc -p . --outDir lib/",
     "test": "ava"
