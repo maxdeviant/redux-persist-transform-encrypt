@@ -1,4 +1,3 @@
-import test from 'ava';
 import { Action, legacy_createStore as createStore, Store } from 'redux';
 import {
   Persistor,
@@ -6,6 +5,7 @@ import {
   persistStore,
   Storage,
 } from 'redux-persist';
+import { describe, expect, it } from 'vitest';
 import { encryptTransform } from '../sync.js';
 
 const inMemoryStorage = () => {
@@ -36,45 +36,47 @@ const persistStoreAsync = (store: Store) =>
     const persistor = persistStore(store, void 0, () => resolve(persistor));
   });
 
-test('end-to-end with `redux-persist`', async t => {
-  type CounterAction = Action<'INCREMENT'> | Action<'DECREMENT'>;
+describe('end-to-end', () => {
+  it('works with `redux-persist`', async () => {
+    type CounterAction = Action<'INCREMENT'> | Action<'DECREMENT'>;
 
-  const counter = (state = { count: 0 }, action: CounterAction) => {
-    switch (action.type) {
-      case 'INCREMENT':
-        return { ...state, count: state.count + 1 };
-      case 'DECREMENT':
-        return { ...state, count: state.count - 1 };
-      default:
-        return state;
-    }
-  };
+    const counter = (state = { count: 0 }, action: CounterAction) => {
+      switch (action.type) {
+        case 'INCREMENT':
+          return { ...state, count: state.count + 1 };
+        case 'DECREMENT':
+          return { ...state, count: state.count - 1 };
+        default:
+          return state;
+      }
+    };
 
-  const { storage } = inMemoryStorage();
-  const transform = encryptTransform({
-    secretKey: 'e2e-test',
+    const { storage } = inMemoryStorage();
+    const transform = encryptTransform({
+      secretKey: 'e2e-test',
+    });
+
+    const key = 'counter';
+    const persistedCounter = persistReducer(
+      {
+        key,
+        storage,
+        transforms: [transform],
+      },
+      counter
+    );
+
+    const store = createStore(persistedCounter);
+    const persistor = await persistStoreAsync(store);
+
+    store.dispatch({ type: 'INCREMENT' });
+    store.dispatch({ type: 'INCREMENT' });
+
+    await persistor.flush();
+
+    const rehydratedStore = createStore(persistedCounter);
+    await persistStoreAsync(rehydratedStore);
+
+    expect(rehydratedStore.getState()).toStrictEqual(store.getState());
   });
-
-  const key = 'counter';
-  const persistedCounter = persistReducer(
-    {
-      key,
-      storage,
-      transforms: [transform],
-    },
-    counter
-  );
-
-  const store = createStore(persistedCounter);
-  const persistor = await persistStoreAsync(store);
-
-  store.dispatch({ type: 'INCREMENT' });
-  store.dispatch({ type: 'INCREMENT' });
-
-  await persistor.flush();
-
-  const rehydratedStore = createStore(persistedCounter);
-  await persistStoreAsync(rehydratedStore);
-
-  t.deepEqual(rehydratedStore.getState(), store.getState());
 });
