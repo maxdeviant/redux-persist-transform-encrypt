@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Updated dependencies
+  - Includes upgrade to `crypto-js@4.2.0`
+
 ## [5.0.0] - 2023-03-25
 
 ### Changed
