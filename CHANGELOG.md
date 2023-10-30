@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.1] - 2023-10-30
+
+### Changed
+
 - Updated dependencies
   - Includes upgrade to `crypto-js@4.2.0`
 
@@ -125,7 +129,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release
 
-[unreleased]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v5.0.0...HEAD
+[unreleased]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v5.0.1...HEAD
+[5.0.1]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v5.0.0...v5.0.1
 [5.0.0]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v4.0.0...v5.0.0
 [4.0.0]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v3.0.1...v4.0.0
 [3.0.1]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v3.0.0...v3.0.1
