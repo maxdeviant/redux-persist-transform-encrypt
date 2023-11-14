@@ -5,6 +5,13 @@
   "type": "module",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "prepublishOnly": "pnpm run build",
     "format": "prettier --ignore-path .gitignore --write '**/*.+(js|json|md|ts|tsx)'",
