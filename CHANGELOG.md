@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.1.0] - 2023-12-09
+
 ### Changed
 
 - Replaced `main` and `types` with `exports` in `package.json` for better ESM compatibility
@@ -133,7 +135,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release
 
-[unreleased]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v5.0.1...HEAD
+[unreleased]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v5.1.0...HEAD
+[5.1.0]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v5.0.1...v5.1.0
 [5.0.1]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v5.0.0...v5.0.1
 [5.0.0]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v4.0.0...v5.0.0
 [4.0.0]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v3.0.1...v4.0.0
