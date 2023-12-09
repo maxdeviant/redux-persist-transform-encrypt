@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Replaced `main` and `types` with `exports` in `package.json` for better ESM compatibility
+
 ## [5.0.1] - 2023-10-30
 
 ### Changed
