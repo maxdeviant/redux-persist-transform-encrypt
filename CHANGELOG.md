@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.1.1] - 2023-12-14
+
 ### Changed
 
 - Moved `default` to the end of `exports` in `package.json`
@@ -139,7 +141,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release
 
-[unreleased]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v5.1.0...HEAD
+[unreleased]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v5.1.1...HEAD
+[5.1.1]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v5.1.0...v5.1.1
 [5.1.0]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v5.0.1...v5.1.0
 [5.0.1]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v5.0.0...v5.0.1
 [5.0.0]: https://github.com/maxdeviant/redux-persist-transform-encrypt/compare/v4.0.0...v5.0.0
