@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Moved `default` to the end of `exports` in `package.json`
+
 ## [5.1.0] - 2023-12-09
 
 ### Changed
