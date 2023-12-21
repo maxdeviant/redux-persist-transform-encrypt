@@ -5,7 +5,7 @@
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
+    "module": "nodenext",
     "moduleResolution": "nodenext",
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
