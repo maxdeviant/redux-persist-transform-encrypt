@@ -5,6 +5,16 @@
 
 Encrypt your Redux store.
 
+## Maintenance notice
+
+As of February 2, 2024, I will longer be maintaining `redux-persist-transform-encrypt`.
+
+I have been supporting it as best I can these past few years, but the reality of it is I have not used `redux-persist-transform-encrypt`, `redux-persist`, or Redux since 2017.
+
+Since I no longer use any of the technologies involved and don't have a good way of testing any potential changes, I am no longer in a position where I feel I can maintain this package to my desired standards.
+
+Additionally, `redux-persist` as a project also seems dead, despite an attempted change in management.
+
 ## Installation
 
 `redux-persist-transform-encrypt` must be used in conjunction with `redux-persist`, so make sure you have that installed as well.
